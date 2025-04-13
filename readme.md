@@ -147,3 +147,8 @@ doesWrap = boolean (optional)
 ]]
 ```
 ## For any more help i recommend looking at the [example](https://github.com/XENFLIX3R/LinoraLibDoc/blob/main/example.lua)!
+## More credits found at the linoria page!
+### - Inori: Main developer.
+### - Wally: Cleaning up verbose code, extending library functionality.
+### - Stefanuk: Extending library functionality.
+### - matas3535: Creator of Splix.
