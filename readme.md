@@ -5,7 +5,7 @@ Linoria is a nice/clean libary made for exploiters to script fast! Libs allow fo
 
 > **READ!** - Linoria Lib was not my creation and full credits to the [Owner](https://github.com/violin-suzutsuki) of Linoria!
  
-> **ALSO!** - Thank you to [Stratxgy](https://github.com/Stratxgy/Linora-Lib) for his Doc, cause of it we got more info about linoria!
+> **ALSO!** - Thank you to [Stratxgy](https://github.com/Stratxgy/Linora-Lib) for his Doc, cause of it i got more info about linoria!
 
 ---
 
