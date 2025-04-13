@@ -30,6 +30,16 @@ local Window = Library:CreateWindow({
     -- Size = float (optional)
 })
 ```
+## Changing theme
+To change the colors of your script
+```
+ThemeManager:SetTheme({
+    BackgroundColor = Color3.fromRGB(50, 50, 50), -- Main background color
+    OutlineColor = Color3.fromRGB(255, 0, 0), -- Outline color
+    TextColor = Color3.fromRGB(255, 255, 255), -- Text color
+    ButtonColor = Color3.fromRGB(30, 30, 30) -- Button color
+})
+```
 ## Creating Tabs
 To create a new tab in your window:
 
