@@ -15,7 +15,7 @@ Linoria is a nice/clean libary made for exploiters to script fast! Libs allow fo
 ## Importing the Library
 To start using LinoriaLib in your Roblox script, you need to load the library and its components from the provided URLs:
 
-```
+```lua
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/VaxKs/gfe/main/CustomLinoria"))()
 local ThemeManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/DetainedMonkey2891/ThemeManager/refs/heads/main/Maina"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/refs/heads/main/addons/SaveManager.lua"))()
