@@ -22,7 +22,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/v
 ```
 ## Creating a New Window
 You can create a new window using the following code:
-```
+```lua
 local Window = Library:CreateWindow({
     Title = 'Example menu',
     Center = true,  -- Set Center to true for a centered menu
@@ -35,7 +35,7 @@ local Window = Library:CreateWindow({
 ```
 ## Changing theme
 To change the colors of your script
-```
+```lua
 ThemeManager:SetTheme({
     BackgroundColor = Color3.fromRGB(50, 50, 50), -- Main background color
     OutlineColor = Color3.fromRGB(255, 0, 0), -- Outline color
@@ -46,14 +46,14 @@ ThemeManager:SetTheme({
 ## Creating Tabs
 To create a new tab in your window:
 
-```
+```lua
 local mainTab = Window:AddTab('Main')
 ```
 ## Clickable UI Elements
 ### Creating Buttons
 Create buttons with customizable actions and tooltips:
 
-```
+```lua
 local MyButton = LeftGroupBox:AddButton({
     Text = 'Button',
     Func = function()
@@ -65,7 +65,7 @@ local MyButton = LeftGroupBox:AddButton({
 ```
 ## Creating a Color Picker
 Add a color picker to change colors dynamically:
-```
+```lua
 LeftGroupBox:AddLabel('Color'):AddColorPicker('ColorPicker', {
     Default = Color3.new(255, 255, 255), -- Default color
     Title = 'Some color', -- Optional: Custom title for the color picker
@@ -78,7 +78,7 @@ LeftGroupBox:AddLabel('Color'):AddColorPicker('ColorPicker', {
 ## Creating a Dropdown
 Dropdowns allow selection from a list of values:
 
-```
+```lua
 LeftGroupBox:AddDropdown('MyDropdown', {
     Values = { 'This', 'is', 'a', 'dropdown' },
     Default = 1, -- Default index or string
@@ -94,7 +94,7 @@ LeftGroupBox:AddDropdown('MyDropdown', {
 ## Creating Toggles
 Use toggles for binary options (on/off):
 
-```
+```lua
 LeftGroupBox:AddToggle('MyToggle', {
     Text = 'This is a toggle',
     Default = false, -- Default state (true/false)
@@ -106,7 +106,7 @@ LeftGroupBox:AddToggle('MyToggle', {
 ```
 ## Creating Keybinds
 Implement keybinds to trigger specific actions:
-```
+```lua
 LeftGroupBox:AddLabel('Keybind'):AddKeyPicker('KeyPicker', {
     Default = 'MB2', -- String for the keybind (e.g., MB1, MB2 for mouse buttons)
     SyncToggleState = false, -- Sync with a toggle if needed
@@ -121,7 +121,7 @@ LeftGroupBox:AddLabel('Keybind'):AddKeyPicker('KeyPicker', {
 ```
 ## Creating Sliders
 Sliders enable selection of a numerical value within a range:
-```
+```lua
 LeftGroupBox:AddSlider('MySlider', {
     Text = 'This is my slider!',
     Default = 0,
@@ -145,14 +145,14 @@ Options.MySlider:SetValue(3) -- Set the slider to a specific value
 ## Tabboxes and Labels
 ### Creating TabBoxes
 You can create tabboxes to organize UI elements horizontally or vertically:
-```
+```lua
 local RightTabBox = Main:AddRightTabbox() -- Right tabbox
 local LeftTabBox = Main:AddLeftTabbox()   -- Left tabbox
 ```
 ## Creating Labels
 Add labels for informational text or titles:
 
-```
+```lua
 local Label = LeftGroupBox:AddLabel('This is a label')
 --[[
 Text = string
