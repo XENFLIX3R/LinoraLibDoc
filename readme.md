@@ -3,7 +3,6 @@
 ## Introduction
 Linoria is a nice/clean libary made for exploiters to script fast! Libs allow for the stress of bad UI to go away! with linoria lib you have many features
 
-> **READ!** - Linoria Lib was not my creation and full credits to the [Owner](https://github.com/violin-suzutsuki) of Linoria!
 > [!IMPORTANT]  
 > Linoria Lib was not my creation and full credits to the [Owner](https://github.com/violin-suzutsuki) of Linoria!
  
