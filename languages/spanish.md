@@ -1,4 +1,4 @@
-# Documentación de LinoriaLib
+# Documentación de Linoria Library
 
 Una biblioteca de UI completa para Roblox con soporte para temas, configuraciones y una amplia variedad de elementos de interfaz.
 
