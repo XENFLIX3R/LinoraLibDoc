@@ -43,19 +43,19 @@ Sebuah perpustakaan UI komprehensif untuk Roblox dengan dukungan tema, konfigura
 
 ## Mengimpor Library
 
-`lua
+```lua
 local repo = '[https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/](https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/)'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
-``
+```
 
 ---
 
 ## Membuat Jendela
 
-`lua
+```lua
 local Window = Library:CreateWindow({
     Title = 'Menu Contoh',
     Center = true,        -- Atur true untuk memusatkan menu di layar
@@ -65,7 +65,7 @@ local Window = Library:CreateWindow({
     -- Position = UDim2 (opsional)
     -- Size = UDim2 (opsional)
 })
-``
+```
 
 ---
 
@@ -73,18 +73,18 @@ local Window = Library:CreateWindow({
 
 Tab mengatur UI Anda menjadi bagian-bagian yang berbeda.
 
-`lua
+```lua
 local Tabs = {
     Main = Window:AddTab('Utama'),
     Settings = Window:AddTab('Pengaturan')
 }
-``
+```
 
 Anda juga dapat mengakses tab secara langsung:
 
-`lua
+```lua
 local MainTab = Window.Tabs.Main
-``
+```
 
 ---
 
@@ -94,16 +94,16 @@ local MainTab = Window.Tabs.Main
 
 Groupbox adalah wadah untuk elemen UI di sisi kiri atau kanan tab.
 
-`lua
+```lua
 local LeftGroupBox = Tabs.Main:AddLeftGroupbox('Judul Grup')
 local RightGroupBox = Tabs.Main:AddRightGroupbox('Judul Grup')
-``
+```
 
 ### Membuat Tabbox
 
 Tabbox memungkinkan Anda membuat sub-tab di dalam area groupbox.
 
-`lua
+```lua
 local TabBox = Tabs.Main:AddLeftTabbox()
 
 local Tab1 = TabBox:AddTab('Tab 1')
@@ -111,7 +111,7 @@ local Tab2 = TabBox:AddTab('Tab 2')
 
 -- Sekarang Anda bisa menambahkan elemen ke tab ini
 Tab1:AddToggle('Tab1Toggle', { Text = 'Saklar Tab 1' })
-``
+```
 
 ---
 
@@ -121,7 +121,7 @@ Tab1:AddToggle('Tab1Toggle', { Text = 'Saklar Tab 1' })
 
 Saklar on/off biner.
 
-`lua
+```lua
 LeftGroupBox:AddToggle('MyToggle', {
     Text = 'Ini adalah saklar',
     Default = true,           -- Nilai default (true / false)
@@ -131,11 +131,11 @@ LeftGroupBox:AddToggle('MyToggle', {
         print('[cb] MyToggle berubah menjadi:', Value)
     end
 })
-``
+```
 
 **Mengakses Status Toggle:**
 
-`lua
+```lua
 -- Mendapatkan nilai saat ini
 local isEnabled = Toggles.MyToggle.Value
 
@@ -146,7 +146,7 @@ end)
 
 -- Mengatur nilai melalui skrip
 Toggles.MyToggle:SetValue(false)
-``
+```
 
 ---
 
@@ -154,7 +154,7 @@ Toggles.MyToggle:SetValue(false)
 
 Menjalankan fungsi saat diklik.
 
-`lua
+```lua
 local MyButton = LeftGroupBox:AddButton({
     Text = 'Tombol',
     Func = function()
@@ -163,7 +163,7 @@ local MyButton = LeftGroupBox:AddButton({
     DoubleClick = false,      -- Memerlukan klik ganda untuk memicu
     Tooltip = 'Ini tombol utama'
 })
-``
+```
 
 ---
 
@@ -171,7 +171,7 @@ local MyButton = LeftGroupBox:AddButton({
 
 Memilih nilai numerik dalam rentang tertentu.
 
-`lua
+```lua
 LeftGroupBox:AddSlider('MySlider', {
     Text = 'Ini penggeser saya!',
     Default = 0,
@@ -186,7 +186,7 @@ LeftGroupBox:AddSlider('MySlider', {
         print('[cb] MySlider diubah! Nilai baru:', Value)
     end
 })
-``
+```
 
 ---
 
@@ -194,7 +194,7 @@ LeftGroupBox:AddSlider('MySlider', {
 
 Memilih dari daftar nilai.
 
-`lua
+```lua
 LeftGroupBox:AddDropdown('MyDropdown', {
     Values = { 'Satu', 'Dua', 'Tiga', 'Empat' },
     Default = 1,              -- Indeks atau nilai string
@@ -206,7 +206,7 @@ LeftGroupBox:AddDropdown('MyDropdown', {
         print('[cb] Dropdown berubah menjadi:', Value)
     end
 })
-``
+```
 
 ---
 
@@ -214,7 +214,7 @@ LeftGroupBox:AddDropdown('MyDropdown', {
 
 Memilih warna dengan transparansi opsional.
 
-`lua
+```lua
 LeftGroupBox:AddLabel('Warna'):AddColorPicker('ColorPicker', {
     Default = Color3.new(0, 1, 0),     -- Hijau terang
     Title = 'Pilih warna',             -- Judul khusus opsional
@@ -224,7 +224,7 @@ LeftGroupBox:AddLabel('Warna'):AddColorPicker('ColorPicker', {
         print('[cb] Warna berubah!', Value)
     end
 })
-``
+```
 
 ---
 
@@ -232,7 +232,7 @@ LeftGroupBox:AddLabel('Warna'):AddColorPicker('ColorPicker', {
 
 Mengontrol visibilitas elemen UI berdasarkan status elemen lainnya.
 
-`lua
+```lua
 local RightGroupbox = Tabs.Main:AddRightGroupbox('Grup Dependensi')
 RightGroupbox:AddToggle('ControlToggle', { Text = 'Saklar Kontrol' })
 
@@ -244,7 +244,7 @@ Depbox:AddToggle('DepboxToggle', { Text = 'Saklar Tergantung' })
 Depbox:SetupDependencies({
     { Toggles.ControlToggle, true } -- Tampilkan saat saklar kontrol bernilai true
 })
-``
+```
 
 ---
 
@@ -252,17 +252,17 @@ Depbox:SetupDependencies({
 
 ### Watermark (Tanda Air)
 
-`lua
+```lua
 -- Mengatur visibilitas
 Library:SetWatermarkVisibility(true)
 
 -- Memperbarui teks
 Library:SetWatermark('Demo LinoriaLib | 60 fps | 50 ms')
-``
+```
 
 ### Bongkar Library (Unload)
 
-`lua
+```lua
 -- Membongkar library dan membersihkan aset
 Library:Unload()
 
@@ -271,7 +271,7 @@ Library:OnUnload(function()
     print('Library dibongkar!')
     Library.Unloaded = true
 end)
-``
+```
 
 ---
 
@@ -279,11 +279,11 @@ end)
 
 Addon ThemeManager memungkinkan Anda membuat dan mengelola tema UI.
 
-`lua
+```lua
 ThemeManager:SetLibrary(Library)
 ThemeManager:SetFolder('FolderScriptSaya')
 ThemeManager:ApplyToTab(Tabs['Settings'])
-``
+```
 
 ---
 
@@ -291,14 +291,14 @@ ThemeManager:ApplyToTab(Tabs['Settings'])
 
 Addon SaveManager menyediakan sistem konfigurasi untuk menyimpan/memuat pengaturan.
 
-`lua
+```lua
 SaveManager:SetLibrary(Library)
 SaveManager:IgnoreThemeSettings()
 SaveManager:SetIgnoreIndexes({ 'MenuKeybind' })
 SaveManager:SetFolder('FolderScriptSaya/game-spesifik')
 SaveManager:BuildConfigSection(Tabs['Settings'])
 SaveManager:LoadAutoloadConfig()
-``
+```
 
 ---
 
