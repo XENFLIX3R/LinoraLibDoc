@@ -43,19 +43,19 @@ Uma biblioteca de UI abrangente para Roblox com suporte a temas, configurações
 
 ## Importando a Biblioteca
 
-`lua
+```lua
 local repo = 'https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
-``
+```
 
 ---
 
 ## Criando uma Janela
 
-`lua
+```lua
 local Window = Library:CreateWindow({
     Title = 'Menu de Exemplo',
     Center = true,        -- Define como true para centralizar o menu na tela
@@ -65,7 +65,7 @@ local Window = Library:CreateWindow({
     -- Position = UDim2 (opcional)
     -- Size = UDim2 (opcional)
 })
-``
+```
 
 ---
 
@@ -73,18 +73,18 @@ local Window = Library:CreateWindow({
 
 As abas organizam sua UI em diferentes seções.
 
-`lua
+```lua
 local Tabs = {
     Main = Window:AddTab('Principal'),
     Settings = Window:AddTab('Configurações')
 }
-``
+```
 
 Você também pode acessar as abas diretamente:
 
-`lua
+```lua
 local MainTab = Window.Tabs.Main
-``
+```
 
 ---
 
@@ -94,16 +94,16 @@ local MainTab = Window.Tabs.Main
 
 Groupboxes são containers para elementos de UI no lado esquerdo ou direito de uma aba.
 
-`lua
+```lua
 local LeftGroupBox = Tabs.Main:AddLeftGroupbox('Título do Grupo')
 local RightGroupBox = Tabs.Main:AddRightGroupbox('Título do Grupo')
-``
+```
 
 ### Criando Tabboxes
 
 Tabboxes permitem criar sub-abas dentro de uma área de groupbox.
 
-`lua
+```lua
 local TabBox = Tabs.Main:AddLeftTabbox()
 
 local Tab1 = TabBox:AddTab('Aba 1')
@@ -111,7 +111,7 @@ local Tab2 = TabBox:AddTab('Aba 2')
 
 -- Agora você pode adicionar elementos a estas abas
 Tab1:AddToggle('Tab1Toggle', { Text = 'Toggle da Aba 1' })
-``
+```
 
 ---
 
@@ -121,7 +121,7 @@ Tab1:AddToggle('Tab1Toggle', { Text = 'Toggle da Aba 1' })
 
 Interruptores binários de ligar/desligar.
 
-`lua
+```lua
 LeftGroupBox:AddToggle('MyToggle', {
     Text = 'Isto é um toggle',
     Default = true,           -- Valor padrão (true / false)
@@ -131,11 +131,11 @@ LeftGroupBox:AddToggle('MyToggle', {
         print('[cb] MyToggle alterado para:', Value)
     end
 })
-``
+```
 
 **Acessando o Estado do Toggle:**
 
-`lua
+```lua
 -- Obter valor atual
 local isEnabled = Toggles.MyToggle.Value
 
@@ -146,7 +146,7 @@ end)
 
 -- Definir valor via script
 Toggles.MyToggle:SetValue(false)
-``
+```
 
 ---
 
@@ -154,7 +154,7 @@ Toggles.MyToggle:SetValue(false)
 
 Executam funções quando clicados.
 
-`lua
+```lua
 local MyButton = LeftGroupBox:AddButton({
     Text = 'Botão',
     Func = function()
@@ -163,13 +163,13 @@ local MyButton = LeftGroupBox:AddButton({
     DoubleClick = false,      -- Requer clique duplo para ativar
     Tooltip = 'Este é o botão principal'
 })
-``
+```
 
 **Sub-Botões:**
 
 Você pode encadear botões para criar botões secundários.
 
-`lua
+```lua
 local MyButton2 = MyButton:AddButton({
     Text = 'Sub botão',
     Func = function()
@@ -178,11 +178,11 @@ local MyButton2 = MyButton:AddButton({
     DoubleClick = true,
     Tooltip = 'Este é o sub botão (clique duplo!)'
 })
-``
+```
 
 **Exemplo de Encadeamento:**
 
-`lua
+```lua
 LeftGroupBox:AddButton({ 
     Text = 'Matar todos', 
     Func = Functions.KillAll, 
@@ -193,7 +193,7 @@ LeftGroupBox:AddButton({
     Func = Functions.KickAll, 
     Tooltip = 'Isso kickará todos do jogo!' 
 })
-``
+```
 
 ---
 
@@ -201,16 +201,16 @@ LeftGroupBox:AddButton({
 
 Exibem informações em texto.
 
-`lua
+```lua
 LeftGroupBox:AddLabel('Isto é um label')
 
 -- Label com quebra de linha automática
 LeftGroupBox:AddLabel('Isto é um label\n\nque quebra o texto!', true)
-``
+```
 
 **Parâmetros:**
-- `Text` (string): O texto a ser exibido.
-- `DoesWrap` (boolean, opcional): Ativa a quebra de linha.
+- ```Text``` (string): O texto a ser exibido.
+- ```DoesWrap``` (boolean, opcional): Ativa a quebra de linha.
 
 ---
 
@@ -218,9 +218,9 @@ LeftGroupBox:AddLabel('Isto é um label\n\nque quebra o texto!', true)
 
 Adicionam separação visual entre elementos.
 
-`lua
+```lua
 LeftGroupBox:AddDivider()
-``
+```
 
 ---
 
@@ -228,7 +228,7 @@ LeftGroupBox:AddDivider()
 
 Selecionam valores numéricos dentro de um intervalo.
 
-`lua
+```lua
 LeftGroupBox:AddSlider('MySlider', {
     Text = 'Este é meu slider!',
     Default = 0,
@@ -243,14 +243,14 @@ LeftGroupBox:AddSlider('MySlider', {
         print('[cb] MySlider foi alterado! Novo valor:', Value)
     end
 })
-``
+```
 
 **Parâmetros Obrigatórios:**
-- `Text`, `Default`, `Min`, `Max`, `Rounding` devem ser especificados.
+- ```Text```, ```Default```, ```Min```, ```Max```, ```Rounding``` devem ser especificados.
 
 **Acessando o Valor do Slider:**
 
-`lua
+```lua
 -- Obter valor atual
 local Number = Options.MySlider.Value
 
@@ -261,7 +261,7 @@ end)
 
 -- Definir valor via script
 Options.MySlider:SetValue(3)
-``
+```
 
 ---
 
@@ -269,7 +269,7 @@ Options.MySlider:SetValue(3)
 
 Caixas de texto para entrada do usuário.
 
-`lua
+```lua
 LeftGroupBox:AddInput('MyTextbox', {
     Default = 'Meu texto!',
     Numeric = false,          -- true = permite apenas números
@@ -283,15 +283,15 @@ LeftGroupBox:AddInput('MyTextbox', {
         print('[cb] Texto atualizado. Novo texto:', Value)
     end
 })
-``
+```
 
 **Acessando o Valor da Entrada:**
 
-`lua
+```lua
 Options.MyTextbox:OnChanged(function()
     print('Texto atualizado. Novo texto:', Options.MyTextbox.Value)
 end)
-``
+```
 
 ---
 
@@ -301,7 +301,7 @@ Selecione a partir de uma lista de valores.
 
 #### Dropdown de Seleção Única
 
-`lua
+```lua
 LeftGroupBox:AddDropdown('MyDropdown', {
     Values = { 'Isto', 'é', 'um', 'dropdown' },
     Default = 1,              -- Índice ou valor em string
@@ -313,22 +313,22 @@ LeftGroupBox:AddDropdown('MyDropdown', {
         print('[cb] Dropdown alterado. Novo valor:', Value)
     end
 })
-``
+```
 
 **Acessando o Valor do Dropdown:**
 
-`lua
+```lua
 Options.MyDropdown:OnChanged(function()
     print('Dropdown alterado. Novo valor:', Options.MyDropdown.Value)
 end)
 
 -- Definir valor via script
 Options.MyDropdown:SetValue('Isto')
-``
+```
 
 #### Dropdown de Seleção Múltipla
 
-`lua
+```lua
 LeftGroupBox:AddDropdown('MyMultiDropdown', {
     Values = { 'Isto', 'é', 'um', 'dropdown' },
     Default = 1,
@@ -340,11 +340,11 @@ LeftGroupBox:AddDropdown('MyMultiDropdown', {
         print('[cb] Multi dropdown alterado:', Value)
     end
 })
-``
+```
 
 **Acessando Valores do Multi-Dropdown:**
 
-`lua
+```lua
 Options.MyMultiDropdown:OnChanged(function()
     print('Multi dropdown alterado:')
     for key, value in next, Options.MyMultiDropdown.Value do
@@ -357,7 +357,7 @@ Options.MyMultiDropdown:SetValue({
     Isto = true,
     um = true,
 })
-``
+```
 
 **Nota:** Atualmente não é possível definir múltiplos valores padrão diretamente no dropdown.
 
@@ -365,7 +365,7 @@ Options.MyMultiDropdown:SetValue({
 
 Dropdown especial para selecionar jogadores.
 
-`lua
+```lua
 LeftGroupBox:AddDropdown('MyPlayerDropdown', {
     SpecialType = 'Player',
     Text = 'Dropdown de jogadores',
@@ -375,7 +375,7 @@ LeftGroupBox:AddDropdown('MyPlayerDropdown', {
         print('[cb] Player dropdown alterado:', Value)
     end
 })
-``
+```
 
 ---
 
@@ -383,7 +383,7 @@ LeftGroupBox:AddDropdown('MyPlayerDropdown', {
 
 Selecione cores com transparência opcional.
 
-`lua
+```lua
 LeftGroupBox:AddLabel('Cor'):AddColorPicker('ColorPicker', {
     Default = Color3.new(0, 1, 0),     -- Verde brilhante
     Title = 'Uma cor',                 -- Título customizado opcional
@@ -393,11 +393,11 @@ LeftGroupBox:AddLabel('Cor'):AddColorPicker('ColorPicker', {
         print('[cb] Cor alterada!', Value)
     end
 })
-``
+```
 
 **Acessando o Color Picker:**
 
-`lua
+```lua
 Options.ColorPicker:OnChanged(function()
     print('Cor alterada!', Options.ColorPicker.Value)
     print('Transparência alterada!', Options.ColorPicker.Transparency)
@@ -405,7 +405,7 @@ end)
 
 -- Definir cor via script
 Options.ColorPicker:SetValueRGB(Color3.fromRGB(0, 255, 140))
-``
+```
 
 **Nota:** Você também pode adicionar ColorPickers a Toggles.
 
@@ -415,7 +415,7 @@ Options.ColorPicker:SetValueRGB(Color3.fromRGB(0, 255, 140))
 
 Associe ações a teclas do teclado ou botões do mouse.
 
-`lua
+```lua
 LeftGroupBox:AddLabel('Tecla'):AddKeyPicker('KeyPicker', {
     Default = 'MB2',          -- MB1, MB2 para botões do mouse
     SyncToggleState = false,  -- Sincroniza estado com o toggle pai
@@ -433,7 +433,7 @@ LeftGroupBox:AddLabel('Tecla'):AddKeyPicker('KeyPicker', {
         print('[cb] Keybind alterado!', New)
     end
 })
-``
+```
 
 **Nota sobre SyncToggleState:** - Funciona apenas com toggles.
 - Permite que o estado do keybind sincronize com o toggle pai.
@@ -441,7 +441,7 @@ LeftGroupBox:AddLabel('Tecla'):AddKeyPicker('KeyPicker', {
 
 **Acessando Keybind:**
 
-`lua
+```lua
 -- OnClick só é disparado no modo Toggle
 Options.KeyPicker:OnClick(function()
     print('Keybind clicado!', Options.KeyPicker:GetState())
@@ -459,7 +459,7 @@ end
 
 -- Definir keybind via script
 Options.KeyPicker:SetValue({ 'MB2', 'Toggle' })
-``
+```
 
 ---
 
@@ -467,7 +467,7 @@ Options.KeyPicker:SetValue({ 'MB2', 'Toggle' })
 
 Controlam a visibilidade de elementos da UI baseando-se no estado de outros elementos.
 
-`lua
+```lua
 local RightGroupbox = Tabs.Main:AddRightGroupbox('Groupbox #3')
 RightGroupbox:AddToggle('ControlToggle', { Text = 'Toggle de controle' })
 
@@ -493,7 +493,7 @@ Depbox:SetupDependencies({
 SubDepbox:SetupDependencies({
     { Toggles.DepboxToggle, true }
 })
-``
+```
 
 ---
 
@@ -501,17 +501,17 @@ SubDepbox:SetupDependencies({
 
 ### Marca d'água (Watermark)
 
-`lua
+```lua
 -- Definir visibilidade
 Library:SetWatermarkVisibility(true)
 
 -- Atualizar texto
 Library:SetWatermark('LinoriaLib demo | 60 fps | 50 ms')
-``
+```
 
 ### Unload (Descarregar)
 
-`lua
+```lua
 -- Descarrega a biblioteca e limpa tudo
 Library:Unload()
 
@@ -520,7 +520,7 @@ Library:OnUnload(function()
     print('Biblioteca descarregada!')
     Library.Unloaded = true
 end)
-``
+```
 
 ---
 
@@ -528,7 +528,7 @@ end)
 
 O addon ThemeManager permite criar e gerenciar temas de UI.
 
-`lua
+```lua
 -- Passa a biblioteca para o ThemeManager
 ThemeManager:SetLibrary(Library)
 
@@ -537,7 +537,7 @@ ThemeManager:SetFolder('MeuScriptHub')
 
 -- Aplica o gerenciador a uma aba
 ThemeManager:ApplyToTab(Tabs['Configurações'])
-``
+```
 
 ---
 
@@ -545,7 +545,7 @@ ThemeManager:ApplyToTab(Tabs['Configurações'])
 
 O addon SaveManager fornece um sistema de configuração para salvar/carregar definições.
 
-`lua
+```lua
 -- Passa a biblioteca para o SaveManager
 SaveManager:SetLibrary(Library)
 
@@ -563,7 +563,7 @@ SaveManager:BuildConfigSection(Tabs['Configurações'])
 
 -- Carrega config automática
 SaveManager:LoadAutoloadConfig()
-``
+```
 
 ---
 
@@ -576,7 +576,7 @@ SaveManager:LoadAutoloadConfig()
 1. **Crie os elementos de UI primeiro**
 2. **Configure as funções :OnChanged depois**
 
-`lua
+```lua
 -- RECOMENDADO: Desacoplar UI de lógica
 LeftGroupBox:AddToggle('MyToggle', {
     Text = 'Isto é um toggle',
@@ -586,18 +586,18 @@ LeftGroupBox:AddToggle('MyToggle', {
 Toggles.MyToggle:OnChanged(function()
     print('Valor:', Toggles.MyToggle.Value)
 end)
-``
+```
 
 ### Acessando Elementos
 
-A biblioteca adiciona duas tabelas globais ao `getgenv()`:
-- **`Toggles`**: Acesso aos objetos de toggle.
-- **`Options`**: Acesso a todos os outros elementos (sliders, dropdowns, inputs, etc).
+A biblioteca adiciona duas tabelas globais ao ```getgenv()```:
+- **```Toggles```**: Acesso aos objetos de toggle.
+- **```Options```**: Acesso a todos os outros elementos (sliders, dropdowns, inputs, etc).
 
-`lua
+```lua
 local toggleVal = Toggles.MyToggle.Value
 local sliderVal = Options.MySlider.Value
-``
+```
 
 ---
 
