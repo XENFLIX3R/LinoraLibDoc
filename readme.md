@@ -6,6 +6,20 @@ A comprehensive UI library for Roblox with support for themes, configurations, a
 
 ---
 
+## Languages
+- [English](
+- [Spanish](
+- [Arabic](
+- [Russian](
+- [Portuguese](
+- [Vietnamese](
+- [Chinese](
+- [French](
+- [Turkish](
+- [Indonesian](
+
+---
+
 ## Table of Contents
 - [Importing the Library](#importing-the-library)
 - [Creating a Window](#creating-a-window)
