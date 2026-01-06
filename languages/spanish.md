@@ -9,7 +9,6 @@ Una biblioteca de UI completa para Roblox con soporte para temas, configuracione
 ## Idiomas
 - [Inglés](
 - [Español](
-- [Árabe](
 - [Ruso](
 - [Portugués](
 - [Vietnamita](
