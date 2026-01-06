@@ -43,19 +43,19 @@
 
 ## 加载库
 
-`lua
+```lua
 local repo = 'https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
-``
+```
 
 ---
 
 ## 创建窗口
 
-`lua
+```lua
 local Window = Library:CreateWindow({
     Title = '示例菜单',
     Center = true,        -- 设置为 true 则菜单在屏幕中央显示
@@ -65,7 +65,7 @@ local Window = Library:CreateWindow({
     -- Position = UDim2 (可选)
     -- Size = UDim2 (可选)
 })
-``
+```
 
 ---
 
@@ -73,18 +73,18 @@ local Window = Library:CreateWindow({
 
 标签页用于将 UI 划分为不同的板块。
 
-`lua
+```lua
 local Tabs = {
     Main = Window:AddTab('主功能'),
     Settings = Window:AddTab('设置')
 }
-``
+```
 
 你也可以直接通过窗口对象访问标签页：
 
-`lua
+```lua
 local MainTab = Window.Tabs.Main
-``
+```
 
 ---
 
@@ -94,16 +94,16 @@ local MainTab = Window.Tabs.Main
 
 组合框是位于标签页左侧或右侧的 UI 组件容器。
 
-`lua
+```lua
 local LeftGroupBox = Tabs.Main:AddLeftGroupbox('组合框标题')
 local RightGroupBox = Tabs.Main:AddRightGroupbox('组合框标题')
-``
+```
 
 ### 创建标签盒 (Tabboxes)
 
 标签盒允许你在组合框区域内创建子标签页。
 
-`lua
+```lua
 local TabBox = Tabs.Main:AddLeftTabbox()
 
 local Tab1 = TabBox:AddTab('子标签 1')
@@ -111,7 +111,7 @@ local Tab2 = TabBox:AddTab('子标签 2')
 
 -- 现在可以向这些子标签添加组件
 Tab1:AddToggle('Tab1Toggle', { Text = '子标签开关' })
-``
+```
 
 ---
 
@@ -121,7 +121,7 @@ Tab1:AddToggle('Tab1Toggle', { Text = '子标签开关' })
 
 二元开启/关闭切换器。
 
-`lua
+```lua
 LeftGroupBox:AddToggle('MyToggle', {
     Text = '这是一个开关',
     Default = true,           -- 默认值 (true / false)
@@ -131,11 +131,11 @@ LeftGroupBox:AddToggle('MyToggle', {
         print('[cb] 开关状态改变为:', Value)
     end
 })
-``
+```
 
 **获取开关状态：**
 
-`lua
+```lua
 -- 获取当前值
 local isEnabled = Toggles.MyToggle.Value
 
@@ -146,7 +146,7 @@ end)
 
 -- 通过代码设置值
 Toggles.MyToggle:SetValue(false)
-``
+```
 
 ---
 
@@ -154,7 +154,7 @@ Toggles.MyToggle:SetValue(false)
 
 点击时执行函数。
 
-`lua
+```lua
 local MyButton = LeftGroupBox:AddButton({
     Text = '按钮',
     Func = function()
@@ -163,13 +163,13 @@ local MyButton = LeftGroupBox:AddButton({
     DoubleClick = false,      -- 是否需要双击触发
     Tooltip = '这是一个主按钮'
 })
-``
+```
 
 **子按钮 (Sub-Buttons):**
 
 你可以通过链式调用在按钮旁创建子按钮。
 
-`lua
+```lua
 local MyButton2 = MyButton:AddButton({
     Text = '子按钮',
     Func = function()
@@ -178,7 +178,7 @@ local MyButton2 = MyButton:AddButton({
     DoubleClick = true,
     Tooltip = '这是一个子按钮 (双击我！)'
 })
-``
+```
 
 ---
 
@@ -186,12 +186,12 @@ local MyButton2 = MyButton:AddButton({
 
 用于显示文本信息。
 
-`lua
+```lua
 LeftGroupBox:AddLabel('这是一个标签')
 
 -- 支持自动换行的标签
 LeftGroupBox:AddLabel('这是一个标签\n\n它可以自动换行显示！', true)
-``
+```
 
 ---
 
@@ -199,9 +199,9 @@ LeftGroupBox:AddLabel('这是一个标签\n\n它可以自动换行显示！', tr
 
 在 UI 组件之间添加视觉分割。
 
-`lua
+```lua
 LeftGroupBox:AddDivider()
-``
+```
 
 ---
 
@@ -209,7 +209,7 @@ LeftGroupBox:AddDivider()
 
 在指定范围内选择数值。
 
-`lua
+```lua
 LeftGroupBox:AddSlider('MySlider', {
     Text = '这是一个滑块！',
     Default = 0,
@@ -224,7 +224,7 @@ LeftGroupBox:AddSlider('MySlider', {
         print('[cb] 滑块数值已改变！新值为:', Value)
     end
 })
-``
+```
 
 ---
 
@@ -232,7 +232,7 @@ LeftGroupBox:AddSlider('MySlider', {
 
 供用户输入的文本框。
 
-`lua
+```lua
 LeftGroupBox:AddInput('MyTextbox', {
     Default = '默认文本',
     Numeric = false,          -- true = 仅允许输入数字
@@ -245,7 +245,7 @@ LeftGroupBox:AddInput('MyTextbox', {
         print('[cb] 文本已更新:', Value)
     end
 })
-``
+```
 
 ---
 
@@ -253,7 +253,7 @@ LeftGroupBox:AddInput('MyTextbox', {
 
 从列表中选择一个或多个值。
 
-`lua
+```lua
 LeftGroupBox:AddDropdown('MyDropdown', {
     Values = { '选项 A', '选项 B', '选项 C', '选项 D' },
     Default = 1,              -- 索引值或字符串名称
@@ -265,7 +265,7 @@ LeftGroupBox:AddDropdown('MyDropdown', {
         print('[cb] 下拉菜单改变为:', Value)
     end
 })
-``
+```
 
 ---
 
@@ -273,7 +273,7 @@ LeftGroupBox:AddDropdown('MyDropdown', {
 
 选择颜色，支持透明度。
 
-`lua
+```lua
 LeftGroupBox:AddLabel('颜色'):AddColorPicker('ColorPicker', {
     Default = Color3.new(0, 1, 0),     -- 亮绿色
     Title = '自定义颜色',              -- 弹窗标题
@@ -283,7 +283,7 @@ LeftGroupBox:AddLabel('颜色'):AddColorPicker('ColorPicker', {
         print('[cb] 颜色已改变！', Value)
     end
 })
-``
+```
 
 ---
 
@@ -291,7 +291,7 @@ LeftGroupBox:AddLabel('颜色'):AddColorPicker('ColorPicker', {
 
 将操作绑定到键盘或鼠标。
 
-`lua
+```lua
 LeftGroupBox:AddLabel('按键绑定'):AddKeyPicker('KeyPicker', {
     Default = 'MB2',          -- MB1, MB2 代表鼠标按键
     SyncToggleState = false,  -- 与父开关同步状态
@@ -307,7 +307,7 @@ LeftGroupBox:AddLabel('按键绑定'):AddKeyPicker('KeyPicker', {
         print('[cb] 绑定按键已更改为:', New)
     end
 })
-``
+```
 
 ---
 
@@ -315,7 +315,7 @@ LeftGroupBox:AddLabel('按键绑定'):AddKeyPicker('KeyPicker', {
 
 基于其他组件的状态控制 UI 组件的可见性。
 
-`lua
+```lua
 local RightGroupbox = Tabs.Main:AddRightGroupbox('依赖组')
 RightGroupbox:AddToggle('ControlToggle', { Text = '主控制开关' })
 
@@ -327,7 +327,7 @@ Depbox:AddToggle('DepboxToggle', { Text = '依赖开关' })
 Depbox:SetupDependencies({
     { Toggles.ControlToggle, true } -- 当主开关为 true 时显示
 })
-``
+```
 
 ---
 
@@ -335,17 +335,17 @@ Depbox:SetupDependencies({
 
 ### 水印 (Watermark)
 
-`lua
+```lua
 -- 设置水印显示状态
 Library:SetWatermarkVisibility(true)
 
 -- 更新水印文本
 Library:SetWatermark('LinoriaLib 演示 | 60 fps | 50 ms')
-``
+```
 
 ### 卸载库 (Unload)
 
-`lua
+```lua
 -- 卸载库并清理资源
 Library:Unload()
 
@@ -354,7 +354,7 @@ Library:OnUnload(function()
     print('库已卸载！')
     Library.Unloaded = true
 end)
-``
+```
 
 ---
 
@@ -362,11 +362,11 @@ end)
 
 ThemeManager 插件允许你创建和管理 UI 主题。
 
-`lua
+```lua
 ThemeManager:SetLibrary(Library)
 ThemeManager:SetFolder('MyScriptHub')
 ThemeManager:ApplyToTab(Tabs['Settings'])
-``
+```
 
 ---
 
@@ -374,14 +374,14 @@ ThemeManager:ApplyToTab(Tabs['Settings'])
 
 SaveManager 插件提供了一套用于保存和加载设置的配置系统。
 
-`lua
+```lua
 SaveManager:SetLibrary(Library)
 SaveManager:IgnoreThemeSettings() -- 不保存主题设置
 SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) -- 忽略特定索引
 SaveManager:SetFolder('MyScriptHub/specific-game')
 SaveManager:BuildConfigSection(Tabs['Settings']) -- 在指定标签页构建配置界面
 SaveManager:LoadAutoloadConfig() -- 加载自动运行配置
-``
+```
 
 ---
 
@@ -391,7 +391,7 @@ SaveManager:LoadAutoloadConfig() -- 加载自动运行配置
 
 建议将 UI 代码与逻辑代码解耦：
 
-`lua
+```lua
 -- 推荐做法：UI 与逻辑分离
 LeftGroupBox:AddToggle('MyToggle', {
     Text = '功能开关',
@@ -402,13 +402,13 @@ LeftGroupBox:AddToggle('MyToggle', {
 Toggles.MyToggle:OnChanged(function()
     print('当前值:', Toggles.MyToggle.Value)
 end)
-``
+```
 
 ### 访问 UI 组件
 
-该库在 `getgenv()` 中添加了两个全局表：
-- **`Toggles`**: 访问开关对象。
-- **`Options`**: 访问所有其他 UI 组件（滑块、下拉菜单、输入框等）。
+该库在 ```getgenv()``` 中添加了两个全局表：
+- **```Toggles```**: 访问开关对象。
+- **```Options```**: 访问所有其他 UI 组件（滑块、下拉菜单、输入框等）。
 
 ---
 
