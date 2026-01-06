@@ -43,19 +43,19 @@ Một thư viện giao diện (UI) toàn diện cho Roblox hỗ trợ chủ đ�
 
 ## Nhập thư viện
 
-`lua
+```lua
 local repo = '[https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/](https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/)'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
-``
+```
 
 ---
 
 ## Tạo cửa sổ
 
-`lua
+```lua
 local Window = Library:CreateWindow({
     Title = 'Menu ví dụ',
     Center = true,        -- Đặt thành true để căn giữa menu trên màn hình
@@ -65,7 +65,7 @@ local Window = Library:CreateWindow({
     -- Position = UDim2 (tùy chọn)
     -- Size = UDim2 (tùy chọn)
 })
-``
+```
 
 ---
 
@@ -73,18 +73,18 @@ local Window = Library:CreateWindow({
 
 Tab giúp tổ chức giao diện của bạn thành các phần khác nhau.
 
-`lua
+```lua
 local Tabs = {
     Main = Window:AddTab('Chính'),
     Settings = Window:AddTab('Cài đặt')
 }
-``
+```
 
 Bạn cũng có thể truy cập tab trực tiếp:
 
-`lua
+```lua
 local MainTab = Window.Tabs.Main
-``
+```
 
 ---
 
@@ -94,16 +94,16 @@ local MainTab = Window.Tabs.Main
 
 Groupbox là các khung chứa thành phần UI ở phía bên trái hoặc bên phải của tab.
 
-`lua
+```lua
 local LeftGroupBox = Tabs.Main:AddLeftGroupbox('Tiêu đề nhóm')
 local RightGroupBox = Tabs.Main:AddRightGroupbox('Tiêu đề nhóm')
-``
+```
 
 ### Tạo Tabboxes
 
 Tabbox cho phép bạn tạo các tab phụ bên trong một khu vực groupbox.
 
-`lua
+```lua
 local TabBox = Tabs.Main:AddLeftTabbox()
 
 local Tab1 = TabBox:AddTab('Tab 1')
@@ -111,7 +111,7 @@ local Tab2 = TabBox:AddTab('Tab 2')
 
 -- Bây giờ bạn có thể thêm các thành phần vào các tab này
 Tab1:AddToggle('Tab1Toggle', { Text = 'Công tắc Tab 1' })
-``
+```
 
 ---
 
@@ -121,7 +121,7 @@ Tab1:AddToggle('Tab1Toggle', { Text = 'Công tắc Tab 1' })
 
 Công tắc bật/tắt nhị phân.
 
-`lua
+```lua
 LeftGroupBox:AddToggle('MyToggle', {
     Text = 'Đây là một công tắc',
     Default = true,           -- Giá trị mặc định (true / false)
@@ -131,11 +131,11 @@ LeftGroupBox:AddToggle('MyToggle', {
         print('[cb] MyToggle đã đổi thành:', Value)
     end
 })
-``
+```
 
 **Truy cập trạng thái Toggle:**
 
-`lua
+```lua
 -- Lấy giá trị hiện tại
 local isEnabled = Toggles.MyToggle.Value
 
@@ -146,7 +146,7 @@ end)
 
 -- Đặt giá trị bằng code
 Toggles.MyToggle:SetValue(false)
-``
+```
 
 ---
 
@@ -154,7 +154,7 @@ Toggles.MyToggle:SetValue(false)
 
 Thực thi các hàm khi được nhấp vào.
 
-`lua
+```lua
 local MyButton = LeftGroupBox:AddButton({
     Text = 'Nút bấm',
     Func = function()
@@ -163,13 +163,13 @@ local MyButton = LeftGroupBox:AddButton({
     DoubleClick = false,      -- Yêu cầu nhấp đúp để kích hoạt
     Tooltip = 'Đây là nút chính'
 })
-``
+```
 
 **Nút phụ (Sub-Buttons):**
 
 Bạn có thể nối chuỗi các nút để tạo nút phụ.
 
-`lua
+```lua
 local MyButton2 = MyButton:AddButton({
     Text = 'Nút phụ',
     Func = function()
@@ -178,7 +178,7 @@ local MyButton2 = MyButton:AddButton({
     DoubleClick = true,
     Tooltip = 'Đây là nút phụ (nhấp đúp vào tôi!)'
 })
-``
+```
 
 ---
 
@@ -186,12 +186,12 @@ local MyButton2 = MyButton:AddButton({
 
 Hiển thị thông tin văn bản.
 
-`lua
+```lua
 LeftGroupBox:AddLabel('Đây là một nhãn')
 
 -- Nhãn có tự động xuống dòng
 LeftGroupBox:AddLabel('Đây là một nhãn\n\ncó thể tự động xuống dòng!', true)
-``
+```
 
 ---
 
@@ -199,7 +199,7 @@ LeftGroupBox:AddLabel('Đây là một nhãn\n\ncó thể tự động xuống d
 
 Chọn các giá trị số trong một phạm vi.
 
-`lua
+```lua
 LeftGroupBox:AddSlider('MySlider', {
     Text = 'Đây là thanh trượt của tôi!',
     Default = 0,
@@ -214,7 +214,7 @@ LeftGroupBox:AddSlider('MySlider', {
         print('[cb] MySlider đã thay đổi! Giá trị mới:', Value)
     end
 })
-``
+```
 
 ---
 
@@ -222,7 +222,7 @@ LeftGroupBox:AddSlider('MySlider', {
 
 Ô văn bản để người dùng nhập liệu.
 
-`lua
+```lua
 LeftGroupBox:AddInput('MyTextbox', {
     Default = 'Văn bản của tôi!',
     Numeric = false,          -- true = chỉ cho phép nhập số
@@ -235,7 +235,7 @@ LeftGroupBox:AddInput('MyTextbox', {
         print('[cb] Văn bản đã cập nhật:', Value)
     end
 })
-``
+```
 
 ---
 
@@ -243,7 +243,7 @@ LeftGroupBox:AddInput('MyTextbox', {
 
 Chọn từ một danh sách các giá trị.
 
-`lua
+```lua
 LeftGroupBox:AddDropdown('MyDropdown', {
     Values = { 'Cái này', 'là', 'một', 'danh sách' },
     Default = 1,              -- Chỉ số (index) hoặc giá trị chuỗi
@@ -255,7 +255,7 @@ LeftGroupBox:AddDropdown('MyDropdown', {
         print('[cb] Dropdown đã thay đổi thành:', Value)
     end
 })
-``
+```
 
 ---
 
@@ -263,7 +263,7 @@ LeftGroupBox:AddDropdown('MyDropdown', {
 
 Chọn màu sắc với tùy chọn độ trong suốt.
 
-`lua
+```lua
 LeftGroupBox:AddLabel('Màu sắc'):AddColorPicker('ColorPicker', {
     Default = Color3.new(0, 1, 0),     -- Màu xanh lá tươi
     Title = 'Chọn màu',                -- Tiêu đề tùy chỉnh
@@ -273,7 +273,7 @@ LeftGroupBox:AddLabel('Màu sắc'):AddColorPicker('ColorPicker', {
         print('[cb] Màu đã đổi!', Value)
     end
 })
-``
+```
 
 ---
 
@@ -281,7 +281,7 @@ LeftGroupBox:AddLabel('Màu sắc'):AddColorPicker('ColorPicker', {
 
 Gán hành động cho các phím bàn phím hoặc nút chuột.
 
-`lua
+```lua
 LeftGroupBox:AddLabel('Phím tắt'):AddKeyPicker('KeyPicker', {
     Default = 'MB2',          -- MB1, MB2 cho các nút chuột
     SyncToggleState = false,  -- Đồng bộ trạng thái với Toggle cha
@@ -297,7 +297,7 @@ LeftGroupBox:AddLabel('Phím tắt'):AddKeyPicker('KeyPicker', {
         print('[cb] Phím tắt đã đổi thành:', New)
     end
 })
-``
+```
 
 ---
 
@@ -305,7 +305,7 @@ LeftGroupBox:AddLabel('Phím tắt'):AddKeyPicker('KeyPicker', {
 
 Điều khiển sự hiển thị của thành phần UI dựa trên trạng thái của thành phần khác.
 
-`lua
+```lua
 local RightGroupbox = Tabs.Main:AddRightGroupbox('Nhóm phụ thuộc')
 RightGroupbox:AddToggle('ControlToggle', { Text = 'Công tắc điều khiển' })
 
@@ -316,7 +316,7 @@ Depbox:AddToggle('DepboxToggle', { Text = 'Công tắc phụ thuộc' })
 Depbox:SetupDependencies({
     { Toggles.ControlToggle, true } -- Hiển thị khi công tắc điều khiển là true
 })
-``
+```
 
 ---
 
@@ -324,21 +324,21 @@ Depbox:SetupDependencies({
 
 ### Watermark (Dấu mờ)
 
-`lua
+```lua
 Library:SetWatermarkVisibility(true)
 Library:SetWatermark('LinoriaLib demo | 60 fps | 50 ms')
-``
+```
 
 ### Unload (Gỡ cài đặt)
 
-`lua
+```lua
 Library:Unload()
 
 Library:OnUnload(function()
     print('Thư viện đã được gỡ!')
     Library.Unloaded = true
 end)
-``
+```
 
 ---
 
@@ -346,11 +346,11 @@ end)
 
 Addon ThemeManager cho phép bạn tạo và quản lý các chủ đề UI.
 
-`lua
+```lua
 ThemeManager:SetLibrary(Library)
 ThemeManager:SetFolder('MyScriptHub')
 ThemeManager:ApplyToTab(Tabs['Settings'])
-``
+```
 
 ---
 
@@ -358,14 +358,14 @@ ThemeManager:ApplyToTab(Tabs['Settings'])
 
 Addon SaveManager cung cấp hệ thống cấu hình để lưu/tải các cài đặt.
 
-`lua
+```lua
 SaveManager:SetLibrary(Library)
 SaveManager:IgnoreThemeSettings()
 SaveManager:SetIgnoreIndexes({ 'MenuKeybind' })
 SaveManager:SetFolder('MyScriptHub/specific-game')
 SaveManager:BuildConfigSection(Tabs['Settings'])
 SaveManager:LoadAutoloadConfig()
-``
+```
 
 ---
 
@@ -375,7 +375,7 @@ SaveManager:LoadAutoloadConfig()
 
 Khuyến khích tách code UI khỏi code xử lý:
 
-`lua
+```lua
 -- NÊN DÙNG: Tách biệt UI và logic
 LeftGroupBox:AddToggle('MyToggle', {
     Text = 'Công tắc',
@@ -385,13 +385,13 @@ LeftGroupBox:AddToggle('MyToggle', {
 Toggles.MyToggle:OnChanged(function()
     print('Giá trị:', Toggles.MyToggle.Value)
 end)
-``
+```
 
 ### Truy cập các thành phần
 
-Thư viện thêm hai bảng toàn cục vào `getgenv()`:
-- **`Toggles`**: Truy cập các đối tượng công tắc.
-- **`Options`**: Truy cập tất cả các thành phần khác (thanh trượt, danh sách, ô nhập, v.v.).
+Thư viện thêm hai bảng toàn cục vào ```getgenv()```:
+- **```Toggles```**: Truy cập các đối tượng công tắc.
+- **```Options```**: Truy cập tất cả các thành phần khác (thanh trượt, danh sách, ô nhập, v.v.).
 
 ---
 
