@@ -7,15 +7,15 @@ Una biblioteca de UI completa para Roblox con soporte para temas, configuracione
 ---
 
 ## Idiomas
-- [Inglés](
-- [Español](
-- [Ruso](
-- [Portugués](
-- [Vietnamita](
-- [Chino](
-- [Francés](
-- [Turco](
-- [Indonesio](
+- [Inglés](https://github.com/XENFLIX3R/LinoraLibDoc/blob/main/readme.md)
+- [Español](https://github.com/XENFLIX3R/LinoraLibDoc/blob/main/languages/spanish.md) - Actual
+- [Ruso](https://github.com/XENFLIX3R/LinoraLibDoc/blob/main/languages/russian.md)
+- [Portugués](https://github.com/XENFLIX3R/LinoraLibDoc/blob/main/languages/portuguese.md)
+- [Vietnamita](https://github.com/XENFLIX3R/LinoraLibDoc/blob/main/languages/vietnamese.md)
+- [Chino](https://github.com/XENFLIX3R/LinoraLibDoc/blob/main/languages/chinese.md)
+- [Francés](https://github.com/XENFLIX3R/LinoraLibDoc/blob/main/languages/french.md)
+- [Turco](https://github.com/XENFLIX3R/LinoraLibDoc/blob/main/languages/turkish.md)
+- [Indonesio](https://github.com/XENFLIX3R/LinoraLibDoc/blob/main/languages/indonesian.md)
   
 ---
 
